@@ -4,12 +4,11 @@ import Image from "next/image";
 import { CalendarDays, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "./LanguageProvider";
-import { contact, portrait } from "@/lib/site";
+import { contact, portrait, practiceLocations } from "@/lib/site";
+import type { LocationId } from "@/lib/i18n";
 
 export function Hero() {
   const { t } = useLanguage();
-  const hospitalCopy = t.chambers.locations["dhaka-medical"];
-  const chamberCopy = t.chambers.locations["dhanmondi-clinic"];
 
   return (
     <section
@@ -25,7 +24,7 @@ export function Hero() {
         <div className="absolute top-40 -right-24 size-96 rounded-full bg-accent-100/60 blur-3xl" />
       </div>
 
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-8 lg:py-28">
+      <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 sm:py-20 lg:grid-cols-[0.82fr_1.18fr] lg:items-start lg:gap-10 lg:px-8 lg:py-16">
         <div>
           <Reveal>
             <p className="inline-flex items-center gap-2 rounded-full bg-white/80 px-4 py-1.5 text-sm font-medium text-brand-700 ring-1 ring-brand-200">
@@ -70,52 +69,21 @@ export function Hero() {
               </a>
             </div>
           </Reveal>
-
-          <Reveal delay={0.32}>
-            <dl className="mt-10 flex flex-col gap-4 border-t border-ink-200 pt-6 sm:flex-row sm:gap-10">
-              <div className="flex items-start gap-3">
-                <MapPin
-                  className="mt-0.5 size-5 shrink-0 text-brand-600"
-                  aria-hidden="true"
-                />
-                <div>
-                  <dt className="text-sm text-ink-500">{t.hero.hospitalPost}</dt>
-                  <dd className="text-sm font-semibold text-ink-800">
-                    {hospitalCopy.shortName}
-                    <span className="block font-normal text-ink-600">
-                      {hospitalCopy.days}
-                    </span>
-                  </dd>
-                </div>
-              </div>
-              <div className="flex items-start gap-3">
-                <CalendarDays
-                  className="mt-0.5 size-5 shrink-0 text-brand-600"
-                  aria-hidden="true"
-                />
-                <div>
-                  <dt className="text-sm text-ink-500">{t.hero.eveningChamber}</dt>
-                  <dd className="text-sm font-semibold text-ink-800">
-                    {chamberCopy.shortName}
-                    <span className="block font-normal text-ink-600">
-                      {chamberCopy.days}, {chamberCopy.hours}
-                    </span>
-                  </dd>
-                </div>
-              </div>
-            </dl>
-          </Reveal>
         </div>
 
-        <Reveal direction="right" delay={0.15}>
+        <Reveal
+          direction="right"
+          delay={0.15}
+          className="lg:col-start-2 lg:row-span-2 lg:row-start-1"
+        >
           <div className="relative">
-            <div className="relative aspect-4/5 overflow-hidden rounded-2xl bg-linear-to-br from-brand-100 via-brand-50 to-accent-100 shadow-[0_30px_80px_-35px_rgba(24,70,69,0.5)] sm:aspect-square lg:aspect-4/5">
+            <div className="relative aspect-square overflow-hidden rounded-3xl bg-linear-to-br from-brand-100 via-brand-50 to-accent-100 shadow-[0_40px_90px_-28px_rgba(24,70,69,0.55)] sm:aspect-5/4">
               <Image
-                src={portrait.cutout}
+                src={portrait.hero}
                 alt={t.doctor.portraitAlt}
                 fill
-                sizes="(min-width: 1024px) 34rem, 100vw"
-                className="object-contain object-bottom"
+                sizes="(min-width: 1024px) 52rem, 100vw"
+                className="object-contain object-center"
                 priority
               />
             </div>
@@ -133,6 +101,42 @@ export function Hero() {
               </a>
             </div>
           </div>
+        </Reveal>
+
+        <Reveal delay={0.32} className="lg:col-start-1">
+          <dl className="grid gap-5 border-t border-ink-200 pt-6 sm:grid-cols-2">
+            {practiceLocations.map((location) => {
+              const copy = t.chambers.locations[location.id as LocationId];
+              const isHospital = location.kind === "hospital";
+
+              return (
+                <div key={location.id} className="flex items-start gap-3">
+                  {isHospital ? (
+                    <MapPin
+                      className="mt-0.5 size-5 shrink-0 text-brand-600"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    <CalendarDays
+                      className="mt-0.5 size-5 shrink-0 text-brand-600"
+                      aria-hidden="true"
+                    />
+                  )}
+                  <div>
+                    <dt className="text-sm text-ink-500">
+                      {isHospital ? t.hero.hospitalPost : t.chambers.chamberKind}
+                    </dt>
+                    <dd className="text-sm font-semibold text-ink-800">
+                      {copy.shortName}
+                      <span className="block font-normal text-ink-600">
+                        {isHospital ? copy.days : `${copy.days} · ${copy.hours}`}
+                      </span>
+                    </dd>
+                  </div>
+                </div>
+              );
+            })}
+          </dl>
         </Reveal>
       </div>
 

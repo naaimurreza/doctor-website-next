@@ -234,36 +234,21 @@ export const navLinks = [
 ] as const;
 
 /**
- * Photographs of Dr. Ferdous, supplied by the site owner.
+ * Photographs of Dr. Ferdous, supplied by the site owner (22 Sept 2026).
  *
- * `cutout` is generated from `faceshot.JPG` with the white studio background
- * made transparent, so she can sit directly on the hero gradient. Regenerate it
- * if the source photo is ever replaced.
+ * `hero` is a transparent cutout for the hero gradient.
+ * `consultation` is the seated office portrait used in About.
+ * `records` is her reviewing notes, used beside the appointment form.
  *
- * Note: `public/face-with-apron.JPG` is an OGSB election campaign poster rather
- * than a plain photograph, so it is deliberately not used as site imagery.
+ * `public/face-with-apron.JPG` is an OGSB election campaign poster, so it is
+ * not used as site imagery. `dr-dilruba-ferdous-coat.jpg` and
+ * `dr-dilruba-ferdous-cutout.png` are earlier photos, kept on disk but not shown.
  */
 export const portrait = {
-  cutout: "/dr-dilruba-ferdous-cutout.png",
-  photo: "/faceshot.JPG",
+  hero: "/faceshot.png",
+  consultation: "/dr-dilruba-consultation.png",
+  records: "/dr-dilruba-records.png",
   alt: `${doctor.name}, ${doctor.specialty}`,
-  width: 472,
-  height: 591,
-} as const;
-
-/**
- * Royalty-free stock photography under the Unsplash License, used only for
- * ambient/contextual imagery. None of these depict Dr. Ferdous.
- */
-export const stockImages = {
-  maternity: {
-    src: "https://images.unsplash.com/photo-1493894473891-10fc1e5dbd22?auto=format&fit=crop&w=1000&q=70",
-    alt: "An expectant mother forming a heart shape with her hands over her belly.",
-  },
-  reception: {
-    src: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=70",
-    alt: "The clean, well-lit reception desk of a medical clinic.",
-  },
 } as const;
 
 export const disclaimer =

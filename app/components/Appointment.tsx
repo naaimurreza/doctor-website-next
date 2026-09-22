@@ -6,7 +6,7 @@ import { AppointmentForm } from "./AppointmentForm";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { useLanguage } from "./LanguageProvider";
-import { chambers, contact, stockImages } from "@/lib/site";
+import { chambers, contact, portrait } from "@/lib/site";
 import type { LocationId } from "@/lib/i18n";
 
 export function Appointment() {
@@ -89,14 +89,14 @@ export function Appointment() {
               </dl>
             </Reveal>
 
-            <Reveal direction="left" delay={0.16} className="hidden lg:block">
+            <Reveal direction="left" delay={0.16}>
               <div className="relative aspect-16/10 overflow-hidden rounded-2xl">
                 <Image
-                  src={stockImages.maternity.src}
-                  alt={t.appointment.maternityAlt}
+                  src={portrait.records}
+                  alt={t.appointment.recordsAlt}
                   fill
                   sizes="(min-width: 1024px) 26rem, 100vw"
-                  className="object-cover"
+                  className="object-cover object-[center_40%]"
                 />
               </div>
             </Reveal>

@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "./LanguageProvider";
-import { stockImages } from "@/lib/site";
+import { portrait } from "@/lib/site";
 
 const reasonIcons: Record<string, LucideIcon> = {
   surgeon: Stethoscope,
@@ -33,7 +33,7 @@ export function WhyChoose() {
     >
       <div aria-hidden="true" className="absolute inset-0 -z-10">
         <Image
-          src={stockImages.reception.src}
+          src={portrait.consultation}
           alt=""
           fill
           sizes="100vw"

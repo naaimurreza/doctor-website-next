@@ -238,8 +238,8 @@ const en = {
     urgentBody:
       "Please call {phone}. The form is not monitored, so a phone call is the only way to reach the chamber quickly.",
     privateChambers: "Private chambers",
-    maternityAlt:
-      "An expectant mother forming a heart shape with her hands over her belly.",
+    recordsAlt:
+      "Dr. Dilruba Ferdous reviewing clinical notes at her desk.",
     form: {
       name: "Full name",
       namePlaceholder: "Your name",
@@ -506,7 +506,7 @@ const bn = {
     urgentBody:
       "অনুগ্রহ করে {phone} নম্বরে কল করুন। ফর্মটি মনিটর করা হয় না, তাই দ্রুত যোগাযোগের একমাত্র উপায় ফোন।",
     privateChambers: "প্রাইভেট চেম্বার",
-    maternityAlt: "গর্ভবতী একজন মা পেটে হাত রেখে হৃদয়ের আকৃতি করেছেন।",
+    recordsAlt: "ডা. দিলরুবা ফেরদৌস ডেস্কে ক্লিনিকাল নোট দেখছেন।",
     form: {
       name: "পুরো নাম",
       namePlaceholder: "আপনার নাম",
