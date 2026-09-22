@@ -1,26 +1,78 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-hind-siliguri), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-noto-serif-bn), var(--font-lora), ui-serif, Georgia, serif;
+
+  /* Primary: soft teal — calm, clinical, high contrast at 600+ */
+  --color-brand-50: #f0fbfa;
+  --color-brand-100: #d7f5f1;
+  --color-brand-200: #b0eae4;
+  --color-brand-300: #7dd8d1;
+  --color-brand-400: #48bdb7;
+  --color-brand-500: #2ba19d;
+  --color-brand-600: #1f827f;
+  --color-brand-700: #1c6867;
+  --color-brand-800: #1a5352;
+  --color-brand-900: #184645;
+
+  /* Accent: muted rose — warmth without the alarm of a medical red */
+  --color-accent-50: #fff5f6;
+  --color-accent-100: #ffe6ea;
+  --color-accent-200: #ffccd5;
+  --color-accent-300: #fba7b6;
+  --color-accent-400: #f2798f;
+  --color-accent-500: #dd5574;
+  --color-accent-600: #c33d5e;
+  --color-accent-700: #a32e4c;
+
+  /* Neutrals warmed slightly so the white never reads clinical-cold */
+  --color-ink-50: #f8fafa;
+  --color-ink-100: #f1f4f4;
+  --color-ink-200: #e3e8e8;
+  --color-ink-300: #cbd3d4;
+  --color-ink-400: #94a2a3;
+  --color-ink-500: #6b7a7b;
+  --color-ink-600: #516061;
+  --color-ink-700: #3f4c4d;
+  --color-ink-800: #2b3536;
+  --color-ink-900: #1b2323;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Keeps anchored sections clear of the sticky navbar */
+    scroll-padding-top: 6.25rem;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    background-color: #ffffff;
+    color: var(--color-ink-800);
+  }
+
+  /* Respect users who ask the OS to reduce motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-600);
+    outline-offset: 2px;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+html[lang="en"] {
+  --font-sans: var(--font-geist-sans), var(--font-hind-siliguri), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-lora), var(--font-noto-serif-bn), ui-serif, Georgia, serif;
 }
