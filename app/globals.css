@@ -1,42 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: var(--font-hind-siliguri), var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-noto-serif-bn), var(--font-lora), ui-serif, Georgia, serif;
+  --font-sans: var(--font-roboto), var(--font-hind-siliguri), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-roboto), var(--font-hind-siliguri), ui-sans-serif, system-ui, sans-serif;
 
-  /* Primary: soft teal — calm, clinical, high contrast at 600+ */
-  --color-brand-50: #f0fbfa;
-  --color-brand-100: #d7f5f1;
-  --color-brand-200: #b0eae4;
-  --color-brand-300: #7dd8d1;
-  --color-brand-400: #48bdb7;
-  --color-brand-500: #2ba19d;
-  --color-brand-600: #1f827f;
-  --color-brand-700: #1c6867;
-  --color-brand-800: #1a5352;
-  --color-brand-900: #184645;
+  /* Primary: deep lavender #6F5B88 — logos, headers, eyebrows */
+  --color-brand-50: #f7f4fb;
+  --color-brand-100: #ede8f4;
+  --color-brand-200: #ddd4ea;
+  --color-brand-300: #c4b6d8;
+  --color-brand-400: #9b86b6;
+  --color-brand-500: #8270a0;
+  --color-brand-600: #6f5b88;
+  --color-brand-700: #5c4b73;
+  --color-brand-800: #3e3354;
+  --color-brand-900: #2a223b;
 
-  /* Accent: muted rose — warmth without the alarm of a medical red */
-  --color-accent-50: #fff5f6;
-  --color-accent-100: #ffe6ea;
-  --color-accent-200: #ffccd5;
-  --color-accent-300: #fba7b6;
-  --color-accent-400: #f2798f;
-  --color-accent-500: #dd5574;
-  --color-accent-600: #c33d5e;
-  --color-accent-700: #a32e4c;
+  /* Secondary: muted teal #3A8891 — buttons and callouts */
+  --color-accent-50: #f2f8f8;
+  --color-accent-100: #e3f1f2;
+  --color-accent-200: #c5e2e4;
+  --color-accent-300: #96cdd1;
+  --color-accent-400: #5aadb4;
+  --color-accent-500: #3a8891;
+  --color-accent-600: #3a8891;
+  --color-accent-700: #2f727a;
 
-  /* Neutrals warmed slightly so the white never reads clinical-cold */
-  --color-ink-50: #f8fafa;
-  --color-ink-100: #f1f4f4;
-  --color-ink-200: #e3e8e8;
-  --color-ink-300: #cbd3d4;
-  --color-ink-400: #94a2a3;
-  --color-ink-500: #6b7a7b;
-  --color-ink-600: #516061;
-  --color-ink-700: #3f4c4d;
-  --color-ink-800: #2b3536;
-  --color-ink-900: #1b2323;
+  /* Soft lavender grey #F4F2F7 for sections; charcoal #2C3539 for text */
+  --color-ink-50: #f4f2f7;
+  --color-ink-100: #e8e4ee;
+  --color-ink-200: #ddd8e3;
+  --color-ink-300: #c5c0c8;
+  --color-ink-400: #8e8794;
+  --color-ink-500: #6a6570;
+  --color-ink-600: #514c56;
+  --color-ink-700: #3e3a42;
+  --color-ink-800: #2c3539;
+  --color-ink-900: #2c3539;
 }
 
 @layer base {
@@ -67,12 +67,8 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-brand-600);
+    outline: 2px solid var(--color-accent-700);
     outline-offset: 2px;
   }
 }
 
-html[lang="en"] {
-  --font-sans: var(--font-geist-sans), var(--font-hind-siliguri), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-lora), var(--font-noto-serif-bn), ui-serif, Georgia, serif;
-}

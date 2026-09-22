@@ -13,13 +13,13 @@ export function DoctorPortrait({ className = "" }: DoctorPortraitProps) {
 
   return (
     <figure className={className}>
-      <div className="relative aspect-3/2 overflow-hidden rounded-2xl bg-linear-to-br from-brand-100 via-brand-50 to-accent-100 ring-1 ring-brand-200/70 shadow-[0_20px_60px_-25px_rgba(28,104,103,0.45)]">
+      <div className="relative aspect-[5/4] overflow-hidden rounded-3xl bg-linear-to-br from-brand-100 via-brand-50 to-accent-100 ring-1 ring-brand-200/70 shadow-[0_40px_90px_-28px_rgba(111,91,136,0.4)] sm:aspect-[4/3]">
         <Image
           src={portrait.consultation}
           alt={t.doctor.portraitAlt}
           fill
-          sizes="(min-width: 1024px) 28rem, 100vw"
-          className="object-cover object-[center_30%]"
+          sizes="(min-width: 1024px) 44rem, 100vw"
+          className="object-cover object-[center_28%]"
         />
       </div>
 

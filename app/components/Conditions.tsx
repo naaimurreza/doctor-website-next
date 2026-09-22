@@ -3,7 +3,7 @@
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { useLanguage } from "./LanguageProvider";
-import { conditionGroups, contact } from "@/lib/site";
+import { conditionGroups, phones } from "@/lib/site";
 import type { ConditionId } from "@/lib/i18n";
 
 export function Conditions() {
@@ -51,12 +51,18 @@ export function Conditions() {
         <Reveal delay={0.1}>
           <p className="mt-10 text-center text-sm text-ink-500">
             {t.conditions.unsure}{" "}
-            <a
-              href={contact.phoneHref}
-              className="font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800"
-            >
-              {contact.phoneDisplay}
-            </a>{" "}
+            {phones.map((phone, index) => (
+              <span key={phone.href}>
+                {index > 0 ? " / " : null}
+                <a
+                  href={phone.href}
+                  className="font-semibold text-brand-700 underline underline-offset-4 hover:text-brand-800"
+                >
+                  {phone.display}
+                  {phone.place ? ` (${t.hero[phone.place]})` : ""}
+                </a>
+              </span>
+            ))}{" "}
             {t.conditions.unsureAfter}
           </p>
         </Reveal>

@@ -1,7 +1,7 @@
 "use client";
 
 import { MapPin, Phone, Stethoscope } from "lucide-react";
-import { chambers, contact } from "@/lib/site";
+import { chambers, phones } from "@/lib/site";
 import { navItems, type LocationId } from "@/lib/i18n";
 import { useLanguage } from "./LanguageProvider";
 
@@ -14,7 +14,7 @@ export function Footer() {
       : "text-sm font-semibold tracking-[0.14em] text-white uppercase";
 
   return (
-    <footer className="bg-ink-900 text-ink-300">
+    <footer className="bg-[#1a2124] text-ink-300">
       <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="lg:col-span-2">
@@ -71,18 +71,21 @@ export function Footer() {
                   </li>
                 );
               })}
-              <li className="flex items-start gap-2.5">
-                <Phone
-                  className="mt-0.5 size-4 shrink-0 text-brand-400"
-                  aria-hidden="true"
-                />
-                <a
-                  href={contact.phoneHref}
-                  className="font-semibold text-white transition-colors hover:text-brand-300"
-                >
-                  {contact.phoneDisplay}
-                </a>
-              </li>
+              {phones.map((phone) => (
+                <li key={phone.href} className="flex items-start gap-2.5">
+                  <Phone
+                    className="mt-0.5 size-4 shrink-0 text-brand-400"
+                    aria-hidden="true"
+                  />
+                  <a
+                    href={phone.href}
+                    className="font-semibold text-white transition-colors hover:text-brand-300"
+                  >
+                    {phone.display}
+                    {phone.place ? ` (${t.hero[phone.place]})` : ""}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -94,7 +97,7 @@ export function Footer() {
             </strong>{" "}
             {t.footer.disclaimer}
           </p>
-          <p className="mt-6 text-sm text-ink-500">
+          <p className="mt-6 text-sm text-ink-400">
             &copy; {year} {t.doctor.name}. {t.footer.copyright}
           </p>
         </div>

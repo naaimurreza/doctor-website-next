@@ -4,7 +4,7 @@ import Image from "next/image";
 import { CalendarDays, MapPin, Phone, ShieldCheck } from "lucide-react";
 import { Reveal } from "./Reveal";
 import { useLanguage } from "./LanguageProvider";
-import { contact, portrait, practiceLocations } from "@/lib/site";
+import { phones, portrait, practiceLocations } from "@/lib/site";
 import type { LocationId } from "@/lib/i18n";
 
 export function Hero() {
@@ -41,7 +41,10 @@ export function Hero() {
               {t.doctor.name}
             </h1>
             <p className="mt-3 text-lg font-medium text-brand-700 sm:text-xl">
-              {t.doctor.qualifications}
+              {t.doctor.qualifications
+                .replace("BCS (Health)", "BCS")
+                .replace(", FCPS", "")
+                .concat(", FCPS (Gynae Oncology)")}
             </p>
           </Reveal>
 
@@ -52,21 +55,25 @@ export function Hero() {
           </Reveal>
 
           <Reveal delay={0.24}>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
               <a
                 href="#appointment"
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-brand-600/20 transition-colors hover:bg-brand-700"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-accent-600 px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-accent-600/20 transition-colors hover:bg-accent-700"
               >
                 <CalendarDays className="size-5" aria-hidden="true" />
                 {t.nav.book}
               </a>
-              <a
-                href={contact.phoneHref}
-                className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-brand-700 ring-1 ring-brand-300 transition-colors hover:bg-brand-50"
-              >
-                <Phone className="size-5" aria-hidden="true" />
-                {t.hero.call} {contact.phoneDisplay}
-              </a>
+              {phones.map((phone) => (
+                <a
+                  key={phone.href}
+                  href={phone.href}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-7 py-3.5 text-base font-semibold text-accent-700 ring-1 ring-accent-300 transition-colors hover:bg-accent-50"
+                >
+                  <Phone className="size-5" aria-hidden="true" />
+                  {t.hero.call} {phone.display}
+                  {phone.place ? ` (${t.hero[phone.place]})` : ""}
+                </a>
+              ))}
             </div>
           </Reveal>
         </div>
@@ -77,7 +84,7 @@ export function Hero() {
           className="lg:col-start-2 lg:row-span-2 lg:row-start-1"
         >
           <div className="relative">
-            <div className="relative aspect-square overflow-hidden rounded-3xl bg-linear-to-br from-brand-100 via-brand-50 to-accent-100 shadow-[0_40px_90px_-28px_rgba(24,70,69,0.55)] sm:aspect-5/4">
+            <div className="relative aspect-square overflow-hidden rounded-3xl bg-linear-to-br from-brand-100 via-brand-50 to-accent-100 shadow-[0_40px_90px_-28px_rgba(111,91,136,0.4)] sm:aspect-5/4">
               <Image
                 src={portrait.hero}
                 alt={t.doctor.portraitAlt}
@@ -88,17 +95,30 @@ export function Hero() {
               />
             </div>
 
-            <div className="absolute -bottom-6 left-4 right-4 rounded-2xl bg-white/95 p-4 shadow-xl ring-1 ring-ink-200/70 backdrop-blur-sm sm:left-6 sm:right-auto sm:w-72">
-              <p className="text-xs font-semibold text-brand-600">
+            <div className="relative z-10 -mt-8 mx-4 rounded-2xl bg-white/95 p-4 shadow-xl ring-1 ring-ink-200/70 backdrop-blur-sm sm:mx-6 sm:w-80 lg:absolute lg:bottom-6 lg:left-6 lg:mx-0 lg:mt-0">
+              <p className="text-xs font-semibold text-accent-700">
                 {t.hero.urgent}
               </p>
-              <a
-                href={contact.phoneHref}
-                className="mt-1.5 flex items-center gap-2 font-serif text-2xl font-semibold text-ink-900 transition-colors hover:text-brand-700"
-              >
-                <Phone className="size-5 text-brand-600" aria-hidden="true" />
-                {contact.phoneDisplay}
-              </a>
+              <ul className="mt-2 space-y-1.5">
+                {phones.map((phone) => (
+                  <li key={phone.href}>
+                    <a
+                      href={phone.href}
+                      className="flex items-center gap-2 text-lg font-semibold text-ink-900 transition-colors hover:text-brand-700"
+                    >
+                      <Phone className="size-4 shrink-0 text-accent-600" aria-hidden="true" />
+                      <span>
+                        {phone.display}
+                        {phone.place ? (
+                          <span className="ml-1.5 text-sm font-medium text-ink-500">
+                            ({t.hero[phone.place]})
+                          </span>
+                        ) : null}
+                      </span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </Reveal>

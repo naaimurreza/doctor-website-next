@@ -1,7 +1,8 @@
 "use client";
 
 import { AnimatePresence, motion } from "motion/react";
-import { Menu, Phone, Stethoscope, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { contact } from "@/lib/site";
 import { navItems } from "@/lib/i18n";
@@ -40,21 +41,27 @@ export function Navbar() {
       <div className="h-1 bg-brand-600" aria-hidden="true" />
       <nav
         aria-label={t.nav.ariaPrimary}
-        className="mx-auto flex h-20 max-w-6xl items-center justify-between gap-3 px-4 sm:px-6 lg:px-8"
+        className="mx-auto flex min-h-20 max-w-6xl items-center justify-between gap-3 px-4 py-2 sm:px-6 lg:px-8"
       >
         <a
           href="#home"
           className="flex shrink-0 items-center gap-2.5 rounded-lg sm:gap-3"
           onClick={() => setIsOpen(false)}
         >
-          <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-brand-600 text-white shadow-sm shadow-brand-600/30 sm:size-11">
-            <Stethoscope className="size-5 sm:size-5.5" aria-hidden="true" />
-          </span>
+          <Image
+            src="/logo.png"
+            alt=""
+            width={506}
+            height={772}
+            priority
+            className="h-14 w-auto shrink-0 sm:h-16"
+            style={{ width: "auto" }}
+          />
           <span className="flex flex-col leading-tight">
             <span className="font-serif text-base font-semibold whitespace-nowrap text-ink-900 sm:text-lg xl:text-xl">
               {t.doctor.name}
             </span>
-            <span className="text-xs font-medium whitespace-nowrap text-ink-500">
+            <span className="max-w-[11rem] text-xs font-medium leading-tight text-ink-500 min-[480px]:max-w-[15rem] xl:max-w-[12.5rem] min-[1440px]:max-w-none">
               {t.doctor.specialty}
             </span>
           </span>
@@ -77,14 +84,14 @@ export function Navbar() {
           <LanguageToggle />
           <a
             href="#appointment"
-            className="hidden items-center gap-2 rounded-full bg-brand-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-brand-600/25 transition-colors hover:bg-brand-700 sm:inline-flex"
+            className="hidden items-center gap-2 rounded-full bg-accent-600 px-5 py-2.5 text-sm font-semibold text-white shadow-md shadow-accent-600/25 transition-colors hover:bg-accent-700 sm:inline-flex"
           >
             {t.nav.book}
           </a>
           <a
             href={contact.phoneHref}
             aria-label={t.nav.callAria}
-            className="inline-flex size-11 items-center justify-center rounded-full bg-brand-50 text-brand-700 ring-1 ring-brand-200 transition-colors hover:bg-brand-100 sm:hidden"
+            className="inline-flex size-11 items-center justify-center rounded-full bg-accent-50 text-accent-700 ring-1 ring-accent-200 transition-colors hover:bg-accent-100 sm:hidden"
           >
             <Phone className="size-5" aria-hidden="true" />
           </a>
@@ -132,7 +139,7 @@ export function Navbar() {
                 <a
                   href="#appointment"
                   onClick={() => setIsOpen(false)}
-                  className="block rounded-xl bg-brand-600 px-4 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-brand-700"
+                  className="block rounded-xl bg-accent-600 px-4 py-3 text-center text-base font-semibold text-white transition-colors hover:bg-accent-700"
                 >
                   {t.nav.book}
                 </a>

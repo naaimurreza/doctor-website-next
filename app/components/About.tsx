@@ -18,9 +18,9 @@ export function About() {
       aria-labelledby="about-heading"
       className="scroll-mt-24 bg-white py-20 sm:py-24"
     >
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16 lg:px-8">
+      <div className="mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] lg:gap-14 lg:px-8">
         <Reveal direction="left">
-          <DoctorPortrait className="mx-auto w-full max-w-sm" />
+          <DoctorPortrait className="w-full" />
         </Reveal>
 
         <div>
@@ -49,7 +49,7 @@ export function About() {
           </Reveal>
 
           <Reveal delay={0.18}>
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
               {t.doctor.degrees.map((degree) => (
                 <li
                   key={degree.abbr}

@@ -6,7 +6,15 @@
  *  2. Her Ibn Sina Trust profile:
  *     https://www.ibnsinatrust.com/view_doctor_profile_up.php?id=3156
  *  3. Details confirmed directly by the site owner (Dhaka Medical College
- *     Hospital daily duty, and Fridays at Asmat Ali Khan Central Hospital).
+ *     Hospital daily duty, Fridays at Asmat Ali Khan Central Hospital,
+ *     FCPS, gynae oncology practice, and a chamber at SIBL Foundation
+ *     Hospital). The SIBL street address is the hospital's published
+ *     address (Fattah Plaza, 70 Green Road, Panthapath, Dhaka-1205).
+ *     Her visiting hours there were not provided, so the site asks
+ *     visitors to call rather than inventing a schedule.
+ *  4. Appointment numbers confirmed by the site owner:
+ *     01789479280 (Madaripur), 09610009619 (Ibn Sina), and
+ *     01712297514. These replace the previous personal line.
  *
  * Nothing here is inferred or embellished — no testimonials, awards, or
  * years-of-experience figures. If you add to this file, add only what you can
@@ -18,8 +26,8 @@ export const doctor = {
   shortName: "Dr. Ferdous",
   // Per the Ibn Sina Trust profile, which lists more than the original
   // directory entry (that one showed only MBBS, MCPS, DGO).
-  qualifications: "MBBS, BCS (Health), MCPS, DGO, MS (Gynae & Obs.)",
-  specialty: "Gynecologist and Surgeon",
+  qualifications: "MBBS, BCS (Health), MCPS, DGO, FCPS, MS (Gynae & Obs.)",
+  specialty: "Gynecologist, Surgeon and Gynae Oncologist",
   designation: "Senior Consultant",
   department: "Gynecology & Obstetrics",
   primaryInstitute: "Dhaka Medical College Hospital",
@@ -30,15 +38,33 @@ export const doctor = {
     { abbr: "BCS (Health)", full: "Bangladesh Civil Service, Health Cadre" },
     { abbr: "MCPS", full: "Member, College of Physicians and Surgeons" },
     { abbr: "DGO", full: "Diploma in Obstetrics & Gynaecology" },
+    { abbr: "FCPS", full: "Fellow of the College of Physicians and Surgeons" },
     { abbr: "MS (Gynae & Obs.)", full: "Master of Surgery, Gynaecology & Obstetrics" },
   ],
 } as const;
 
+export const phones = [
+  {
+    display: "01789479280",
+    href: "tel:+8801789479280",
+    place: "madaripur",
+  },
+  {
+    display: "09610009619",
+    href: "tel:09610009619",
+    place: "ibnSina",
+  },
+  {
+    display: "01712297514",
+    href: "tel:+8801712297514",
+    place: null,
+  },
+] as const;
+
 export const contact = {
-  /** Primary appointment line, displayed in local Bangladeshi format. */
-  phoneDisplay: "01970476626",
-  /** E.164 form so `tel:` links also work for callers outside Bangladesh. */
-  phoneHref: "tel:+8801970476626",
+  phones,
+  /** Used only where a control can dial a single line, such as the navbar icon. */
+  phoneHref: phones[0].href,
 } as const;
 
 export type PracticeLocation = {
@@ -96,8 +122,18 @@ export const practiceLocations: readonly PracticeLocation[] = [
     address: "Green Road, Dhaka",
     days: "Thursday, Friday, Saturday",
     hours: "5:00 PM – 7:00 PM",
-    phoneDisplay: contact.phoneDisplay,
-    phoneHref: contact.phoneHref,
+    kind: "chamber",
+  },
+  {
+    id: "sibl-foundation",
+    name: "SIBL Foundation Hospital & Diagnostic Center",
+    shortName: "SIBL Foundation Hospital",
+    address: "Fattah Plaza, 70 Green Road, Panthapath, Dhaka-1205",
+    // Visiting hours were not supplied. Do not invent a schedule.
+    days: "Call to confirm",
+    hours: "Visiting hours on request",
+    phoneDisplay: "01991150900",
+    phoneHref: "tel:+8801991150900",
     kind: "chamber",
   },
   {

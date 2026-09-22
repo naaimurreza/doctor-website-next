@@ -5,27 +5,28 @@ export const LANGUAGE_STORAGE_KEY = "df-lang";
 
 const en = {
   meta: {
-    title: "Dr. Dilruba Ferdous — Gynecologist and Surgeon in Dhaka",
+    title: "Dr. Dilruba Ferdous — Gynecologist and Gynae Oncologist in Dhaka",
     description:
-      "Dr. Dilruba Ferdous (MBBS, BCS (Health), MCPS, DGO, MS) is a gynecologist and surgeon and Senior Consultant at Dhaka Medical College Hospital. Private chambers in Keraniganj, Dhanmondi, and Dhaka. Call 01970476626 for appointments.",
+      "Dr. Dilruba Ferdous (MBBS, BCS (Health), MCPS, DGO, FCPS, MS) is a gynecologist, surgeon and gynae oncologist and Senior Consultant at Dhaka Medical College Hospital. Chambers in Keraniganj, Dhanmondi, SIBL Foundation Hospital on Green Road, and Dhaka. Call 01789479280 (Madaripur), 09610009619 (Ibn Sina), or 01712297514 for appointments.",
   },
   doctor: {
     name: "Dr. Dilruba Ferdous",
     shortName: "Dr. Ferdous",
-    qualifications: "MBBS, BCS (Health), MCPS, DGO, MS (Gynae & Obs.)",
-    specialty: "Gynecologist and Surgeon",
+    qualifications: "MBBS, BCS (Health), MCPS, DGO, FCPS, MS (Gynae & Obs.)",
+    specialty: "Gynecologist, Surgeon and Gynae Oncologist",
     designation: "Senior Consultant",
     department: "Gynecology & Obstetrics",
     primaryInstitute: "Dhaka Medical College Hospital",
     tagline: "Compassionate Gynecological Care in Dhaka",
     heroLead:
-      "from pregnancy and gynecological surgery to fertility and everyday women’s health concerns.",
-    portraitAlt: "Dr. Dilruba Ferdous, Gynecologist and Surgeon",
+      "from pregnancy, gynecological surgery and gynae oncology to fertility and everyday women’s health concerns.",
+    portraitAlt: "Dr. Dilruba Ferdous, Gynecologist, Surgeon and Gynae Oncologist",
     degrees: [
       { abbr: "MBBS", full: "Bachelor of Medicine, Bachelor of Surgery" },
       { abbr: "BCS (Health)", full: "Bangladesh Civil Service, Health Cadre" },
       { abbr: "MCPS", full: "Member, College of Physicians and Surgeons" },
       { abbr: "DGO", full: "Diploma in Obstetrics & Gynaecology" },
+      { abbr: "FCPS", full: "Fellow of the College of Physicians and Surgeons" },
       {
         abbr: "MS (Gynae & Obs.)",
         full: "Master of Surgery, Gynaecology & Obstetrics",
@@ -44,7 +45,7 @@ const en = {
     book: "Book an Appointment",
     openMenu: "Open menu",
     closeMenu: "Close menu",
-    callAria: "Call Dr. Ferdous at 01970476626",
+    callAria: "Call Dr. Ferdous at 01789479280, 09610009619, or 01712297514",
     language: "Language",
     bengali: "বাং",
     english: "EN",
@@ -56,14 +57,16 @@ const en = {
     eveningChamber: "Evening chamber",
     urgent: "For urgent appointments",
     call: "Call",
+    madaripur: "Madaripur",
+    ibnSina: "Ibn Sina",
   },
   about: {
     eyebrow: "About",
     title: "Care built on listening first",
-    p1: "Dr. Dilruba Ferdous is a gynecologist and surgeon practising in Dhaka. She is Senior Consultant in Gynecology & Obstetrics at Dhaka Medical College Hospital, and holds an MBBS, BCS (Health), MCPS, DGO, and MS in Gynaecology & Obstetrics.",
-    p2: "Alongside her hospital post she holds private chambers in Keraniganj, Dhanmondi, and at Asmat Ali Khan Central Hospital. Consultations are in Bangla and English. Her work spans obstetric care, gynecological surgery including laparoscopic procedures, infertility evaluation, and everyday gynecological concerns.",
+    p1: "Dr. Dilruba Ferdous is a gynecologist, surgeon and gynae oncologist practising in Dhaka. She is Senior Consultant in Gynecology & Obstetrics at Dhaka Medical College Hospital, and holds an MBBS, BCS (Health), MCPS, DGO, FCPS, and MS in Gynaecology & Obstetrics.",
+    p2: "Alongside her hospital post she holds private chambers in Keraniganj, Dhanmondi, at SIBL Foundation Hospital on Green Road, and at Asmat Ali Khan Central Hospital. Consultations are in Bangla and English. Her work spans obstetric care, gynecological surgery including laparoscopic procedures, gynae oncology, infertility evaluation, and everyday gynecological concerns.",
     p3: "Many of the conditions she treats — fibroids, ovarian cysts, endometriosis, irregular bleeding — are common and treatable, and usually more straightforward to manage when they’re looked at early. If something doesn’t feel right, it is worth booking a visit.",
-    caption: "Dr. Dilruba Ferdous — Gynecologist and Surgeon",
+    caption: "Dr. Dilruba Ferdous — Gynecologist, Surgeon and Gynae Oncologist",
   },
   services: {
     eyebrow: "Services",
@@ -160,8 +163,8 @@ const en = {
     items: [
       {
         id: "surgeon",
-        title: "A gynecologist and surgeon in Dhaka",
-        body: "Both medical and surgical gynecology under one practice, so care doesn't have to be handed off elsewhere when an operation is needed.",
+        title: "A gynecologist, surgeon and gynae oncologist in Dhaka",
+        body: "Medical gynecology, surgery and gynae oncology under one practice, so care doesn't have to be handed off elsewhere when an operation is needed.",
       },
       {
         id: "diagnosis",
@@ -184,7 +187,7 @@ const en = {
     eyebrow: "Chambers & Visiting Hours",
     title: "Where and when to find her",
     description:
-      "Hospital duty at Dhaka Medical, with private chambers in Keraniganj, Dhanmondi, and at Asmat Ali Khan Central Hospital. Please call ahead to confirm your slot.",
+      "Hospital duty at Dhaka Medical, with private chambers in Keraniganj, Dhanmondi, at SIBL Foundation Hospital on Green Road, and at Asmat Ali Khan Central Hospital. Please call ahead to confirm your slot.",
     hospitalKind: "Hospital post",
     chamberKind: "Private chamber",
     days: "Days",
@@ -218,6 +221,14 @@ const en = {
         detail: "",
         days: "Thursday, Friday, Saturday",
         hours: "5:00 PM – 7:00 PM",
+      },
+      "sibl-foundation": {
+        name: "SIBL Foundation Hospital & Diagnostic Center",
+        shortName: "SIBL Foundation Hospital",
+        address: "Fattah Plaza, 70 Green Road, Panthapath, Dhaka-1205",
+        detail: "",
+        days: "Call to confirm",
+        hours: "Visiting hours on request",
       },
       "asmat-ali-khan": {
         name: "Asmat Ali Khan Central Hospital Ltd.",
@@ -261,7 +272,7 @@ const en = {
   },
   footer: {
     blurb:
-      "Senior Consultant in Gynecology & Obstetrics at Dhaka Medical College Hospital. Private chambers in Keraniganj, Dhanmondi, and Dhaka.",
+      "Senior Consultant in Gynecology & Obstetrics at Dhaka Medical College Hospital, and a gynae oncologist. Private chambers in Keraniganj, Dhanmondi, SIBL Foundation Hospital, and Dhaka.",
     quickLinks: "Quick links",
     contact: "Contact",
     disclaimerLabel: "Disclaimer:",
@@ -273,27 +284,28 @@ const en = {
 
 const bn = {
   meta: {
-    title: "ডা. দিলরুবা ফেরদৌস — ঢাকায় স্ত্রীরোগ বিশেষজ্ঞ ও সার্জন",
+    title: "ডা. দিলরুবা ফেরদৌস — ঢাকায় স্ত্রীরোগ বিশেষজ্ঞ ও গাইনি অনকোলজিস্ট",
     description:
-      "ডা. দিলরুবা ফেরদৌস (এমবিবিএস, বিসিএস (হেলথ), এমসিপিএস, ডিজিও, এমএস) ঢাকা মেডিকেল কলেজ হাসপাতালের সিনিয়র কনসালটেন্ট এবং স্ত্রীরোগ বিশেষজ্ঞ ও সার্জন। কেরানীগঞ্জ, ধানমন্ডি ও ঢাকায় প্রাইভেট চেম্বার। অ্যাপয়েন্টমেন্টের জন্য কল করুন ০১৯৭০৪৭৬৬২৬।",
+      "ডা. দিলরুবা ফেরদৌস (এমবিবিএস, বিসিএস (হেলথ), এমসিপিএস, ডিজিও, এফসিপিএস, এমএস) ঢাকা মেডিকেল কলেজ হাসপাতালের সিনিয়র কনসালটেন্ট এবং স্ত্রীরোগ বিশেষজ্ঞ, সার্জন ও গাইনি অনকোলজিস্ট। কেরানীগঞ্জ, ধানমন্ডি, গ্রিন রোডের এসআইবিএল ফাউন্ডেশন হাসপাতাল ও ঢাকায় চেম্বার। অ্যাপয়েন্টমেন্টের জন্য কল করুন ০১৭৮৯৪৭৯২৮০ (মাদারীপুর), ০৯৬১০০০৯৬১৯ (ইবনে সিনা), অথবা ০১৭১২২৯৭৫১৪।",
   },
   doctor: {
     name: "ডা. দিলরুবা ফেরদৌস",
     shortName: "ডা. ফেরদৌস",
-    qualifications: "MBBS, BCS (Health), MCPS, DGO, MS (Gynae & Obs.)",
-    specialty: "স্ত্রীরোগ বিশেষজ্ঞ ও সার্জন",
+    qualifications: "MBBS, BCS (Health), MCPS, DGO, FCPS, MS (Gynae & Obs.)",
+    specialty: "স্ত্রীরোগ বিশেষজ্ঞ, সার্জন ও গাইনি অনকোলজিস্ট",
     designation: "সিনিয়র কনসালটেন্ট",
     department: "গাইনি ও অবস",
     primaryInstitute: "ঢাকা মেডিকেল কলেজ হাসপাতাল",
     tagline: "ঢাকায় সহমর্মী স্ত্রীরোগ সেবা",
     heroLead:
-      "গর্ভাবস্থা ও স্ত্রীরোগ সার্জারি থেকে শুরু করে বন্ধ্যাত্ব এবং নিত্যদিনের নারীস্বাস্থ্যের যত্ন।",
-    portraitAlt: "ডা. দিলরুবা ফেরদৌস, স্ত্রীরোগ বিশেষজ্ঞ ও সার্জন",
+      "গর্ভাবস্থা, স্ত্রীরোগ সার্জারি ও গাইনি অনকোলজি থেকে শুরু করে বন্ধ্যাত্ব এবং নিত্যদিনের নারীস্বাস্থ্যের যত্ন।",
+    portraitAlt: "ডা. দিলরুবা ফেরদৌস, স্ত্রীরোগ বিশেষজ্ঞ, সার্জন ও গাইনি অনকোলজিস্ট",
     degrees: [
       { abbr: "MBBS", full: "ব্যাচেলর অব মেডিসিন, ব্যাচেলর অব সার্জারি" },
       { abbr: "BCS (Health)", full: "বাংলাদেশ সিভিল সার্ভিস, হেলথ ক্যাডার" },
       { abbr: "MCPS", full: "মেম্বার, কলেজ অব ফিজিশিয়ানস অ্যান্ড সার্জনস" },
       { abbr: "DGO", full: "ডিপ্লোমা ইন অবস্টেট্রিক্স অ্যান্ড গাইনোকোলজি" },
+      { abbr: "FCPS", full: "ফেলো, কলেজ অব ফিজিশিয়ানস অ্যান্ড সার্জনস" },
       {
         abbr: "MS (Gynae & Obs.)",
         full: "মাস্টার অব সার্জারি, গাইনোকোলজি ও অবস্টেট্রিক্স",
@@ -312,7 +324,7 @@ const bn = {
     book: "অ্যাপয়েন্টমেন্ট নিন",
     openMenu: "মেনু খুলুন",
     closeMenu: "মেনু বন্ধ করুন",
-    callAria: "ডা. ফেরদৌসকে কল করুন ০১৯৭০৪৭৬৬২৬",
+    callAria: "ডা. ফেরদৌসকে কল করুন ০১৭৮৯৪৭৯২৮০, ০৯৬১০০০৯৬১৯, অথবা ০১৭১২২৯৭৫১৪",
     language: "ভাষা",
     bengali: "বাং",
     english: "EN",
@@ -324,14 +336,16 @@ const bn = {
     eveningChamber: "সন্ধ্যার চেম্বার",
     urgent: "জরুরি অ্যাপয়েন্টমেন্টের জন্য",
     call: "কল করুন",
+    madaripur: "মাদারীপুর",
+    ibnSina: "ইবনে সিনা",
   },
   about: {
     eyebrow: "পরিচিতি",
     title: "আগে শোনা, তারপর চিকিৎসা",
-    p1: "ডা. দিলরুবা ফেরদৌস ঢাকায় কর্মরত একজন স্ত্রীরোগ বিশেষজ্ঞ ও সার্জন। তিনি ঢাকা মেডিকেল কলেজ হাসপাতালের গাইনি ও অবস বিভাগে সিনিয়র কনসালটেন্ট, এবং এমবিবিএস, বিসিএস (হেলথ), এমসিপিএস, ডিজিও ও এমএস (গাইনি ও অবস) ডিগ্রিধারী।",
-    p2: "হাসপাতালের দায়িত্বের পাশাপাশি তিনি কেরানীগঞ্জ, ধানমন্ডি এবং আসমত আলী খান সেন্ট্রাল হাসপাতালে প্রাইভেট চেম্বার করেন। পরামর্শ বাংলা ও ইংরেজিতে হয়। তাঁর কাজের পরিসর গর্ভাবস্থার সেবা, ল্যাপারোস্কোপিকসহ স্ত্রীরোগ সার্জারি, বন্ধ্যাত্ব মূল্যায়ন এবং নিত্যদিনের স্ত্রীরোগ সমস্যা।",
+    p1: "ডা. দিলরুবা ফেরদৌস ঢাকায় কর্মরত একজন স্ত্রীরোগ বিশেষজ্ঞ, সার্জন ও গাইনি অনকোলজিস্ট। তিনি ঢাকা মেডিকেল কলেজ হাসপাতালের গাইনি ও অবস বিভাগে সিনিয়র কনসালটেন্ট, এবং এমবিবিএস, বিসিএস (হেলথ), এমসিপিএস, ডিজিও, এফসিপিএস ও এমএস (গাইনি ও অবস) ডিগ্রিধারী।",
+    p2: "হাসপাতালের দায়িত্বের পাশাপাশি তিনি কেরানীগঞ্জ, ধানমন্ডি, গ্রিন রোডের এসআইবিএল ফাউন্ডেশন হাসপাতাল এবং আসমত আলী খান সেন্ট্রাল হাসপাতালে প্রাইভেট চেম্বার করেন। পরামর্শ বাংলা ও ইংরেজিতে হয়। তাঁর কাজের পরিসর গর্ভাবস্থার সেবা, ল্যাপারোস্কোপিকসহ স্ত্রীরোগ সার্জারি, গাইনি অনকোলজি, বন্ধ্যাত্ব মূল্যায়ন এবং নিত্যদিনের স্ত্রীরোগ সমস্যা।",
     p3: "তিনি যেসব সমস্যা দেখেন — ফাইব্রয়েড, ওভারিয়ান সিস্ট, এন্ডোমেট্রিওসিস, অনিয়মিত রক্তস্রাব — সেগুলো সাধারণত চিকিৎসাযোগ্য, এবং আগে ধরা পড়লে সামলানো সহজ হয়। কিছু ঠিক মনে না হলে চেম্বারে দেখানোই ভালো।",
-    caption: "ডা. দিলরুবা ফেরদৌস — স্ত্রীরোগ বিশেষজ্ঞ ও সার্জন",
+    caption: "ডা. দিলরুবা ফেরদৌস — স্ত্রীরোগ বিশেষজ্ঞ, সার্জন ও গাইনি অনকোলজিস্ট",
   },
   services: {
     eyebrow: "সেবাসমূহ",
@@ -428,8 +442,8 @@ const bn = {
     items: [
       {
         id: "surgeon",
-        title: "ঢাকায় স্ত্রীরোগ বিশেষজ্ঞ ও সার্জন",
-        body: "চিকিৎসা ও অস্ত্রোপচার একই চর্চায়, তাই অপারেশন লাগলে অন্যত্র পাঠাতে হয় না।",
+        title: "ঢাকায় স্ত্রীরোগ বিশেষজ্ঞ, সার্জন ও গাইনি অনকোলজিস্ট",
+        body: "চিকিৎসা, অস্ত্রোপচার ও গাইনি অনকোলজি একই চর্চায়, তাই অপারেশন লাগলে অন্যত্র পাঠাতে হয় না।",
       },
       {
         id: "diagnosis",
@@ -452,7 +466,7 @@ const bn = {
     eyebrow: "চেম্বার ও সময়সূচি",
     title: "কোথায়, কখন পাবেন",
     description:
-      "ঢাকা মেডিকেলে হাসপাতাল ডিউটি, এবং কেরানীগঞ্জ, ধানমন্ডি ও আসমত আলী খান সেন্ট্রাল হাসপাতালে প্রাইভেট চেম্বার। স্লট নিশ্চিত করতে আগে ফোন করুন।",
+      "ঢাকা মেডিকেলে হাসপাতাল ডিউটি, এবং কেরানীগঞ্জ, ধানমন্ডি, গ্রিন রোডের এসআইবিএল ফাউন্ডেশন হাসপাতাল ও আসমত আলী খান সেন্ট্রাল হাসপাতালে প্রাইভেট চেম্বার। স্লট নিশ্চিত করতে আগে ফোন করুন।",
     hospitalKind: "হাসপাতাল পোস্ট",
     chamberKind: "প্রাইভেট চেম্বার",
     days: "দিন",
@@ -486,6 +500,14 @@ const bn = {
         detail: "",
         days: "বৃহস্পতিবার, শুক্রবার, শনিবার",
         hours: "৫:০০ অপরাহ্ন – ৭:০০ অপরাহ্ন",
+      },
+      "sibl-foundation": {
+        name: "এসআইবিএল ফাউন্ডেশন হাসপাতাল অ্যান্ড ডায়াগনস্টিক সেন্টার",
+        shortName: "এসআইবিএল ফাউন্ডেশন হাসপাতাল",
+        address: "ফাত্তাহ প্লাজা, ৭০ গ্রিন রোড, পান্থপথ, ঢাকা-১২০৫",
+        detail: "",
+        days: "নিশ্চিত হতে কল করুন",
+        hours: "সময় জানতে হাসপাতালে কল করুন",
       },
       "asmat-ali-khan": {
         name: "আসমত আলী খান সেন্ট্রাল হাসপাতাল লিমিটেড",
@@ -528,7 +550,7 @@ const bn = {
   },
   footer: {
     blurb:
-      "ঢাকা মেডিকেল কলেজ হাসপাতালের গাইনি ও অবস বিভাগে সিনিয়র কনসালটেন্ট। কেরানীগঞ্জ, ধানমন্ডি ও ঢাকায় প্রাইভেট চেম্বার।",
+      "ঢাকা মেডিকেল কলেজ হাসপাতালের গাইনি ও অবস বিভাগে সিনিয়র কনসালটেন্ট এবং গাইনি অনকোলজিস্ট। কেরানীগঞ্জ, ধানমন্ডি, এসআইবিএল ফাউন্ডেশন হাসপাতাল ও ঢাকায় প্রাইভেট চেম্বার।",
     quickLinks: "দ্রুত লিংক",
     contact: "যোগাযোগ",
     disclaimerLabel: "দাবিত্যাগ:",

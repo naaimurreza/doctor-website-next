@@ -1,30 +1,22 @@
 import type { Metadata } from "next";
-import { Geist, Hind_Siliguri, Lora, Noto_Serif_Bengali } from "next/font/google";
+import { Hind_Siliguri, Roboto } from "next/font/google";
 import "./globals.css";
 import { LanguageProvider } from "./components/LanguageProvider";
-import { chambers, contact, hospitalPost } from "@/lib/site";
+import { chambers, hospitalPost, phones } from "@/lib/site";
 import { dictionary, defaultLocale } from "@/lib/i18n";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const roboto = Roboto({
+  variable: "--font-roboto",
   subsets: ["latin"],
+  weight: ["400", "500", "700"],
 });
 
-const lora = Lora({
-  variable: "--font-lora",
-  subsets: ["latin"],
-});
-
+// Roboto has no Bengali glyphs, so this stays only as a fallback for
+// Bengali characters. Latin text, including headings, uses Roboto.
 const hindSiliguri = Hind_Siliguri({
   variable: "--font-hind-siliguri",
-  subsets: ["bengali", "latin"],
+  subsets: ["bengali"],
   weight: ["400", "500", "600", "700"],
-});
-
-const notoSerifBengali = Noto_Serif_Bengali({
-  variable: "--font-noto-serif-bn",
-  subsets: ["bengali", "latin"],
-  weight: ["400", "600", "700"],
 });
 
 // TODO(domain): Point this at the real domain once the site is live, so that
@@ -43,6 +35,9 @@ export const metadata: Metadata = {
     "ঢাকায় গাইনি ডাক্তার",
     "স্ত্রীরোগ বিশেষজ্ঞ ঢাকা",
     "gynecologist in Dhaka",
+    "gynae oncologist Dhaka",
+    "গাইনি অনকোলজিস্ট ঢাকা",
+    "SIBL Foundation Hospital",
     "gynecologist Green Road",
     dictionary.bn.doctor.name,
     dictionary.en.doctor.name,
@@ -76,7 +71,7 @@ const structuredData = {
   alternateName: dictionary.bn.doctor.name,
   medicalSpecialty: "Gynecologic",
   description: `${dictionary.en.doctor.specialty} — ${dictionary.en.doctor.qualifications}`,
-  telephone: contact.phoneDisplay,
+  telephone: phones.map((phone) => phone.display),
   url: siteUrl,
   availableLanguage: ["bn", "en"],
   address: {
@@ -104,7 +99,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang={defaultLocale}
-      className={`${geistSans.variable} ${lora.variable} ${hindSiliguri.variable} ${notoSerifBengali.variable} h-full antialiased`}
+      className={`${roboto.variable} ${hindSiliguri.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white font-sans">
         <noscript>

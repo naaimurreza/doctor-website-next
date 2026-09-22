@@ -6,7 +6,7 @@ import { AppointmentForm } from "./AppointmentForm";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { useLanguage } from "./LanguageProvider";
-import { chambers, contact, portrait } from "@/lib/site";
+import { chambers, phones, portrait } from "@/lib/site";
 import type { LocationId } from "@/lib/i18n";
 
 export function Appointment() {
@@ -17,7 +17,11 @@ export function Appointment() {
       : "text-sm font-semibold tracking-[0.14em] text-accent-700 uppercase";
   const urgentBody = t.appointment.urgentBody.replace(
     "{phone}",
-    contact.phoneDisplay,
+    phones
+      .map((phone) =>
+        phone.place ? `${phone.display} (${t.hero[phone.place]})` : phone.display,
+      )
+      .join(" / "),
   );
 
   return (
@@ -45,13 +49,19 @@ export function Appointment() {
                 <p className="mt-3 text-base leading-relaxed text-ink-700">
                   {urgentBody}
                 </p>
-                <a
-                  href={contact.phoneHref}
-                  className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-accent-600/20 transition-colors hover:bg-accent-700"
-                >
-                  <Phone className="size-5" aria-hidden="true" />
-                  {t.hero.call} {contact.phoneDisplay}
-                </a>
+                <div className="mt-5 flex flex-col gap-2">
+                  {phones.map((phone) => (
+                    <a
+                      key={phone.href}
+                      href={phone.href}
+                      className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-accent-600/20 transition-colors hover:bg-accent-700"
+                    >
+                      <Phone className="size-5" aria-hidden="true" />
+                      {t.hero.call} {phone.display}
+                      {phone.place ? ` (${t.hero[phone.place]})` : ""}
+                    </a>
+                  ))}
+                </div>
               </div>
             </Reveal>
 

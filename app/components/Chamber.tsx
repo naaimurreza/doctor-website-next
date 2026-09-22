@@ -5,7 +5,7 @@ import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
 import { useLanguage } from "./LanguageProvider";
 import {
-  contact,
+  phones,
   practiceLocations,
   type PracticeLocation,
 } from "@/lib/site";
@@ -36,7 +36,7 @@ export function Chamber() {
     <section
       id="chambers"
       aria-labelledby="chamber-heading"
-      className="scroll-mt-24 bg-ink-50/60 py-20 sm:py-24"
+      className="scroll-mt-24 bg-ink-50 py-20 sm:py-24"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -49,8 +49,16 @@ export function Chamber() {
         <div className="mt-14 grid gap-6 sm:grid-cols-2">
           {practiceLocations.map((location, index) => {
             const copy = t.chambers.locations[location.id as LocationId];
-            const phoneHref = location.phoneHref ?? contact.phoneHref;
-            const phoneDisplay = location.phoneDisplay ?? contact.phoneDisplay;
+            const callLines =
+              location.phoneHref && location.phoneDisplay
+                ? [
+                    {
+                      href: location.phoneHref,
+                      display: location.phoneDisplay,
+                      place: null,
+                    },
+                  ]
+                : phones;
 
             return (
               <Reveal key={location.id} delay={index * 0.06}>
@@ -107,13 +115,19 @@ export function Chamber() {
                   </dl>
 
                   {location.kind === "chamber" ? (
-                    <a
-                      href={phoneHref}
-                      className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-brand-700"
-                    >
-                      <Phone className="size-4" aria-hidden="true" />
-                      {t.hero.call} {phoneDisplay}
-                    </a>
+                    <div className="mt-6 flex flex-col gap-2">
+                      {callLines.map((phone) => (
+                        <a
+                          key={phone.href}
+                          href={phone.href}
+                          className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent-600 px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-accent-700"
+                        >
+                          <Phone className="size-4" aria-hidden="true" />
+                          {t.hero.call} {phone.display}
+                          {phone.place ? ` (${t.hero[phone.place]})` : ""}
+                        </a>
+                      ))}
+                    </div>
                   ) : (
                     <p className="mt-6 text-sm text-ink-500">
                       {t.chambers.hospitalNote}

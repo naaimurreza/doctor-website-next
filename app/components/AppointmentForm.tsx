@@ -81,7 +81,7 @@ export function AppointmentForm() {
         <button
           type="button"
           onClick={() => setIsSubmitted(false)}
-          className="mt-6 rounded-full px-5 py-2.5 text-sm font-semibold text-brand-700 ring-1 ring-brand-300 transition-colors hover:bg-brand-50"
+          className="mt-6 rounded-full px-5 py-2.5 text-sm font-semibold text-accent-700 ring-1 ring-accent-300 transition-colors hover:bg-accent-50"
         >
           {form.another}
         </button>
@@ -109,7 +109,7 @@ export function AppointmentForm() {
             required
             autoComplete="name"
             placeholder={form.namePlaceholder}
-            className="mt-2 w-full rounded-xl border-0 bg-ink-50 px-4 py-3 text-base text-ink-900 ring-1 ring-ink-200 transition-shadow placeholder:text-ink-400 focus:ring-2 focus:ring-brand-500"
+            className="mt-2 w-full rounded-xl border-0 bg-ink-50 px-4 py-3 text-base text-ink-900 ring-1 ring-ink-200 transition-shadow placeholder:text-ink-400 focus:ring-2 focus:ring-accent-500"
           />
         </div>
 
@@ -128,7 +128,7 @@ export function AppointmentForm() {
             autoComplete="tel"
             inputMode="tel"
             placeholder="01XXXXXXXXX"
-            className="mt-2 w-full rounded-xl border-0 bg-ink-50 px-4 py-3 text-base text-ink-900 ring-1 ring-ink-200 transition-shadow placeholder:text-ink-400 focus:ring-2 focus:ring-brand-500"
+            className="mt-2 w-full rounded-xl border-0 bg-ink-50 px-4 py-3 text-base text-ink-900 ring-1 ring-ink-200 transition-shadow placeholder:text-ink-400 focus:ring-2 focus:ring-accent-500"
           />
         </div>
 
@@ -145,7 +145,7 @@ export function AppointmentForm() {
             type="date"
             required
             ref={dateInputRef}
-            className="mt-2 w-full rounded-xl border-0 bg-ink-50 px-4 py-3 text-base text-ink-900 ring-1 ring-ink-200 transition-shadow focus:ring-2 focus:ring-brand-500"
+            className="mt-2 w-full rounded-xl border-0 bg-ink-50 px-4 py-3 text-base text-ink-900 ring-1 ring-ink-200 transition-shadow focus:ring-2 focus:ring-accent-500"
           />
           <p className="mt-2 text-sm text-ink-500">{form.dateHint}</p>
         </div>
@@ -163,7 +163,7 @@ export function AppointmentForm() {
             name="message"
             rows={4}
             placeholder={form.messagePlaceholder}
-            className="mt-2 w-full resize-y rounded-xl border-0 bg-ink-50 px-4 py-3 text-base text-ink-900 ring-1 ring-ink-200 transition-shadow placeholder:text-ink-400 focus:ring-2 focus:ring-brand-500"
+            className="mt-2 w-full resize-y rounded-xl border-0 bg-ink-50 px-4 py-3 text-base text-ink-900 ring-1 ring-ink-200 transition-shadow placeholder:text-ink-400 focus:ring-2 focus:ring-accent-500"
           />
         </div>
       </div>
@@ -171,7 +171,7 @@ export function AppointmentForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-brand-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-brand-600/20 transition-colors hover:bg-brand-700 disabled:cursor-not-allowed disabled:opacity-70"
+        className="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-full bg-accent-600 px-6 py-3.5 text-base font-semibold text-white shadow-lg shadow-accent-600/20 transition-colors hover:bg-accent-700 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {isSubmitting ? (
           <>
